@@ -327,41 +327,67 @@ nav{
 .viz-device-meta dd{font-size:18px;font-weight:500;color:var(--on-dark-1);font-feature-settings:'tnum';letter-spacing:-0.01em;}
 .viz-device-wave{height:80px;margin:24px -12px;opacity:.85;}
 
-/* phone triple — for app section */
+/* phone triple — real PWA screenshots in iPhone bezels */
 .viz-phones{
   background:var(--ink);
-  display:flex;gap:14px;align-items:center;justify-content:center;
-  padding:8% 6%;
+  display:flex;gap:18px;align-items:center;justify-content:center;
+  padding:7% 5%;
   overflow:hidden;
+  position:relative;
+}
+.viz-phones::before{
+  /* soft radial accent behind the phones */
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 70% at 50% 50%, rgba(59,90,134,0.18), transparent 70%);
 }
 .phone{
+  position:relative;
   flex:1;max-width:170px;aspect-ratio:9/19.5;
-  background:#1A1C1B;border-radius:22px;
-  border:1px solid rgba(255,255,255,0.07);
-  box-shadow:0 22px 50px rgba(0,0,0,0.45);
-  display:flex;flex-direction:column;
-  padding:14px 12px;position:relative;overflow:hidden;
+  background:#0E0F0D;border-radius:26px;
+  padding:6px;
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 26px 60px rgba(0,0,0,0.55),
+    0 4px 12px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+  z-index:1;
 }
-.phone-mid{transform:translateY(-22px);max-width:182px;}
-.phone-notch{align-self:center;width:36%;height:13px;background:#000;border-radius:0 0 10px 10px;margin-bottom:14px;}
-.phone-pill{
-  align-self:flex-start;
-  background:rgba(124,149,183,0.16);color:var(--accent-soft-text);
-  font-size:8.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  padding:4px 8px;border-radius:99px;margin-bottom:12px;
+.phone-mid{transform:translateY(-28px) scale(1.06);z-index:2;}
+.phone-side{opacity:0.9;}
+.phone-screen{
+  position:relative;
+  width:100%;height:100%;
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--paper-2);
 }
-.phone-bar{height:7px;border-radius:3px;background:rgba(255,255,255,0.08);margin-bottom:7px;}
-.phone-bar.short{width:55%;}
-.phone-bar.bright{background:rgba(255,255,255,0.28);width:78%;}
-.phone-chart{
-  flex:1;margin-top:10px;background:rgba(0,0,0,0.4);border-radius:8px;padding:10px;
-  display:flex;flex-direction:column;justify-content:flex-end;gap:4px;
+.phone-screen img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
 }
-.phone-chart-bar{height:7px;background:rgba(255,255,255,0.08);border-radius:2px;}
-.phone-chart-bar.tall{height:16px;background:rgba(124,149,183,0.5);}
-.phone-readout{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--on-dark-1);}
-.phone-readout .big{font-size:30px;font-weight:500;letter-spacing:-0.02em;}
-.phone-readout .small{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-3);}
+/* iPhone-ish notch on top of screen */
+.phone-screen::before{
+  content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:34%;height:10px;background:#000;border-radius:0 0 8px 8px;z-index:2;
+}
+
+/* single-phone variant — used in "Connect your data" row */
+.viz-phone-solo{
+  background:linear-gradient(160deg, #1A2F50 0%, #0A1A33 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:6% 0;overflow:hidden;position:relative;
+}
+.viz-phone-solo::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 70% at 50% 40%, rgba(91,123,168,0.22), transparent 70%),
+    radial-gradient(40% 40% at 80% 90%, rgba(124,149,183,0.18), transparent 70%);
+}
+.viz-phone-solo .phone{
+  flex:none;max-width:none;
+  width:auto;height:88%;
+  aspect-ratio:9/19.5;
+  z-index:1;
+}
 
 /* metrics card — Levels-style "Score Calculation" panel */
 .viz-metrics{
@@ -676,8 +702,8 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
     <a href="#app">App</a>
   </div>
   <div class="nav-right">
-    <a href="#" class="nav-login">Sign in</a>
-    <a href="#app" class="nav-cta">Open the app</a>
+    <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener" class="nav-login">Sign in</a>
+    <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener" class="nav-cta">Open the app</a>
   </div>
   <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -686,7 +712,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
   <a href="#data">For clinicians</a>
   <a href="#science">Science</a>
   <a href="#app">App</a>
-  <a href="#app">Open the app →</a>
+  <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener">Open the app →</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -701,7 +727,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
     <h1 class="h-hero reveal r-1">See the tremor.<br>Steady the hand.</h1>
     <p class="lead-lg hero-sub reveal r-2">NeuroZ Poise stabilises a spoon in milliseconds and turns thirty days of motion into a record your neurologist can read — so eating becomes a meal again, not a battle.</p>
     <div class="hero-actions reveal r-3">
-      <a href="#app" class="btn-primary">Open the app
+      <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener" class="btn-primary">Open the app
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
       </a>
       <a href="#how" class="btn-ghost">See how it works</a>
@@ -877,43 +903,20 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
           <div class="feature"><span class="feature-dot"></span><span>One-tap PDF export to clinic</span></div>
         </div>
       </div>
-      <div class="visual viz-phones reveal r-1" aria-hidden="true">
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-pill">Today</div>
-          <div class="phone-bar bright"></div>
-          <div class="phone-bar short"></div>
-          <div class="phone-bar"></div>
-          <div class="phone-chart">
-            <div class="phone-chart-bar" style="width:40%;"></div>
-            <div class="phone-chart-bar" style="width:65%;"></div>
-            <div class="phone-chart-bar tall" style="width:80%;"></div>
-            <div class="phone-chart-bar" style="width:55%;"></div>
+      <div class="visual viz-phones reveal r-1" aria-label="NeuroZ companion app screens">
+        <div class="phone phone-side">
+          <div class="phone-screen">
+            <img src="app-screens/trends.png" alt="Trends — 30-day tremor history with medication overlays" loading="lazy">
           </div>
         </div>
         <div class="phone phone-mid">
-          <div class="phone-notch"></div>
-          <div class="phone-pill">Severity</div>
-          <div class="phone-bar bright" style="width:90%;"></div>
-          <div class="phone-bar"></div>
-          <div class="phone-bar short"></div>
-          <div class="phone-chart">
-            <div class="phone-chart-bar" style="width:30%;"></div>
-            <div class="phone-chart-bar" style="width:50%;"></div>
-            <div class="phone-chart-bar" style="width:70%;"></div>
-            <div class="phone-chart-bar tall" style="width:90%;"></div>
-            <div class="phone-chart-bar" style="width:60%;"></div>
+          <div class="phone-screen">
+            <img src="app-screens/session.png" alt="Live session — real-time tremor cancellation with severity readout" loading="lazy">
           </div>
         </div>
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-pill">Export</div>
-          <div class="phone-bar bright"></div>
-          <div class="phone-bar"></div>
-          <div class="phone-bar short"></div>
-          <div class="phone-readout">
-            <div class="big">PDF</div>
-            <div class="small">Sent to clinic</div>
+        <div class="phone phone-side">
+          <div class="phone-screen">
+            <img src="app-screens/settings.png" alt="Settings — paired devices, privacy controls, and clinic export" loading="lazy">
           </div>
         </div>
       </div>
@@ -934,80 +937,12 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
           <div class="feature"><span class="feature-dot"></span><span>HIPAA-aligned storage</span></div>
         </div>
       </div>
-      <div class="visual viz-device reveal r-1" aria-hidden="true">
-        <div class="viz-device-head">
-          <span class="viz-device-tag">Live · last 30 s</span>
-          <span class="viz-device-status">Stabilizing</span>
+      <div class="visual viz-phone-solo reveal r-1" aria-label="NeuroZ Connect screen — pair the spoon over BLE">
+        <div class="phone">
+          <div class="phone-screen">
+            <img src="app-screens/connect.png" alt="Connect screen showing live device pairing, IMU rate and latency" loading="lazy">
+          </div>
         </div>
-        <div>
-          <div class="viz-device-num">82<small>% recall</small></div>
-          <svg class="viz-device-wave" viewBox="0 0 600 80" preserveAspectRatio="none" shape-rendering="geometricPrecision">
-            <defs>
-              <linearGradient id="dev-w" x1="0" x2="1" y1="0" y2="0">
-                <stop offset="0%" stop-color="rgba(124,149,183,0)"/>
-                <stop offset="20%" stop-color="rgba(124,149,183,0.7)"/>
-                <stop offset="80%" stop-color="rgba(180,200,228,1)"/>
-                <stop offset="100%" stop-color="rgba(124,149,183,0)"/>
-              </linearGradient>
-              <linearGradient id="dev-w-fill" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="rgba(124,149,183,0.18)"/>
-                <stop offset="100%" stop-color="rgba(124,149,183,0)"/>
-              </linearGradient>
-              <filter id="dev-glow" x="-10%" y="-50%" width="120%" height="200%">
-                <feGaussianBlur stdDeviation="2.5" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-
-            <!-- baseline grid -->
-            <line x1="0" y1="40" x2="600" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="2 6"/>
-
-            <!-- envelope fill (subtle) -->
-            <path d="M0 40
-                     C 30 40,  40 18,  60 18
-                     C 80 18,  90 62,  110 62
-                     C 130 62, 140 14, 160 14
-                     C 180 14, 190 66, 210 66
-                     C 230 66, 240 22, 260 22
-                     C 280 22, 290 58, 310 58
-                     C 330 58, 340 16, 360 16
-                     C 380 16, 390 64, 410 64
-                     C 430 64, 440 24, 460 24
-                     C 480 24, 490 56, 510 56
-                     C 530 56, 540 30, 560 30
-                     C 580 30, 590 44, 600 40
-                     L 600 80 L 0 80 Z"
-                  fill="url(#dev-w-fill)"/>
-
-            <!-- main signal stroke -->
-            <path d="M0 40
-                     C 30 40,  40 18,  60 18
-                     C 80 18,  90 62,  110 62
-                     C 130 62, 140 14, 160 14
-                     C 180 14, 190 66, 210 66
-                     C 230 66, 240 22, 260 22
-                     C 280 22, 290 58, 310 58
-                     C 330 58, 340 16, 360 16
-                     C 380 16, 390 64, 410 64
-                     C 430 64, 440 24, 460 24
-                     C 480 24, 490 56, 510 56
-                     C 530 56, 540 30, 560 30
-                     C 580 30, 590 44, 600 40"
-                  fill="none" stroke="url(#dev-w)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#dev-glow)"/>
-
-            <!-- live trailing dot -->
-            <circle r="3" fill="#B4C8E4">
-              <animateMotion dur="3.6s" repeatCount="indefinite" rotate="auto"
-                path="M0 40 C 30 40, 40 18, 60 18 C 80 18, 90 62, 110 62 C 130 62, 140 14, 160 14 C 180 14, 190 66, 210 66 C 230 66, 240 22, 260 22 C 280 22, 290 58, 310 58 C 330 58, 340 16, 360 16 C 380 16, 390 64, 410 64 C 430 64, 440 24, 460 24 C 480 24, 490 56, 510 56 C 530 56, 540 30, 560 30 C 580 30, 590 44, 600 40"/>
-              <animate attributeName="r" values="3;4.5;3" dur="1.4s" repeatCount="indefinite"/>
-            </circle>
-          </svg>
-        </div>
-        <dl class="viz-device-meta">
-          <div><dt>Latency</dt><dd>56 ms</dd></div>
-          <div><dt>Sample rate</dt><dd>50 Hz</dd></div>
-          <div><dt>Stability</dt><dd>±1°</dd></div>
-        </dl>
       </div>
     </div>
 
@@ -1090,7 +1025,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
     <div class="eyebrow reveal">Start with NeuroZ</div>
     <h2 class="reveal r-1">Stop watching. Start steadying.</h2>
     <p class="reveal r-2">Cancel tremor in milliseconds, capture thirty days of evidence, and bring objective data into every neurology appointment.</p>
-    <a href="mailto:hello@neuroz.health" class="btn-primary reveal r-3" style="background:var(--paper);color:var(--ink);">Request access
+    <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener" class="btn-primary reveal r-3" style="background:var(--paper);color:var(--ink);">Open the app
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
     </a>
   </div>
