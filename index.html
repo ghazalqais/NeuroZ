@@ -699,6 +699,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
     <a href="#how">How it works</a>
     <a href="#data">For clinicians</a>
     <a href="#science">Science</a>
+    <a href="#team">Team</a>
     <a href="#app">App</a>
   </div>
   <div class="nav-right">
@@ -711,6 +712,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
   <a href="#how">How it works</a>
   <a href="#data">For clinicians</a>
   <a href="#science">Science</a>
+  <a href="#team">Team</a>
   <a href="#app">App</a>
   <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener">Open the app →</a>
 </div>
@@ -725,7 +727,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
   <div class="hero-inner">
     <div class="hero-eyebrow reveal">The clinical-grade platform for tremor</div>
     <h1 class="h-hero reveal r-1">See the tremor.<br>Steady the hand.</h1>
-    <p class="lead-lg hero-sub reveal r-2">NeuroZ Poise stabilises a spoon in milliseconds and turns thirty days of motion into a record your neurologist can read — so eating becomes a meal again, not a battle.</p>
+    <p class="lead-lg hero-sub reveal r-2">NeuroZ Poise stabilises a spoon in milliseconds and turns motion between clinic visits into a longitudinal record your neurologist can read — so eating becomes a meal again, not a battle.</p>
     <div class="hero-actions reveal r-3">
       <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener" class="btn-primary">Open the app
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
@@ -759,7 +761,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
     <div class="section-head">
       <div class="eyebrow accent reveal">Stop guessing</div>
       <h2 class="h-section reveal r-1">Tremor data is generic.<br>Your hand isn't.</h2>
-      <p class="reveal r-2">Most assistive devices treat every shake the same. NeuroZ learns the frequency signature of your tremor at 50 Hz, then cancels it before your eyes can register the motion.</p>
+      <p class="reveal r-2">Most assistive devices treat every shake the same. NeuroZ learns the frequency signature of your tremor at 100 Hz, then cancels it before your eyes can register the motion.</p>
     </div>
 
     <div class="row">
@@ -885,7 +887,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
   <div class="section-inner">
     <div class="section-head">
       <h2 class="h-section reveal">Your system for steady hands<br>and clear evidence.</h2>
-      <p class="reveal r-1">Start with the device, connect the companion app, and share thirty days of objective motion data with the clinicians who treat you.</p>
+      <p class="reveal r-1">Start with the device, connect the companion app, and share a longitudinal record of objective motion data with the clinicians who treat you.</p>
     </div>
 
     <div class="row">
@@ -899,7 +901,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
         <div class="feature-grid">
           <div class="feature"><span class="feature-dot"></span><span>Live tremor feed during meals</span></div>
           <div class="feature"><span class="feature-dot"></span><span>Auto-tagged medication overlays</span></div>
-          <div class="feature"><span class="feature-dot"></span><span>Severity trend across 30 days</span></div>
+          <div class="feature"><span class="feature-dot"></span><span>Severity trend — last 30 days between visits</span></div>
           <div class="feature"><span class="feature-dot"></span><span>One-tap PDF export to clinic</span></div>
         </div>
       </div>
@@ -933,7 +935,7 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
         <div class="feature-grid">
           <div class="feature"><span class="feature-dot"></span><span>Device + app sync over BLE</span></div>
           <div class="feature"><span class="feature-dot"></span><span>Medication schedule import</span></div>
-          <div class="feature"><span class="feature-dot"></span><span>30-day longitudinal record</span></div>
+          <div class="feature"><span class="feature-dot"></span><span>Longitudinal record between clinic visits</span></div>
           <div class="feature"><span class="feature-dot"></span><span>HIPAA-aligned storage</span></div>
         </div>
       </div>
@@ -1019,12 +1021,85 @@ footer{background:var(--ink);color:var(--on-dark-3);padding:64px 28px 40px;}
   </div>
 </section>
 
+<!-- ── MATURITY LADDER ── -->
+<section class="section" id="status">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="eyebrow accent reveal">Where we are</div>
+      <h2 class="h-section reveal r-1">From a working algorithm<br>to a clinical platform.</h2>
+      <p class="reveal r-2">Each subsystem is validated on its own. The next steps are integration into a single device, a clinical pilot in Amman, and commercial release across MENA.</p>
+    </div>
+    <div class="problem-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="problem-card reveal">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;">● Today</div>
+        <div class="problem-title" style="font-size:18px;margin-bottom:10px;">Validated</div>
+        <div class="problem-desc">AI classifier at 82% recall on 398 patients. Control loop validated in simulation. Mechanical prototype 3D-printed.</div>
+      </div>
+      <div class="problem-card reveal r-1">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-4);margin-bottom:18px;">Q4 2026</div>
+        <div class="problem-title" style="font-size:18px;margin-bottom:10px;">Integrated</div>
+        <div class="problem-desc">Single-board prototype: ESP32 + BNO055 + servo, end-to-end inference under 100 ms.</div>
+      </div>
+      <div class="problem-card reveal r-2">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-4);margin-bottom:18px;">2027</div>
+        <div class="problem-title" style="font-size:18px;margin-bottom:10px;">Piloted</div>
+        <div class="problem-desc">First clinical pilot with neurology clinics in Amman. Co-designed with our clinical advisor.</div>
+      </div>
+      <div class="problem-card reveal r-3">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-4);margin-bottom:18px;">2029</div>
+        <div class="problem-title" style="font-size:18px;margin-bottom:10px;">Launched</div>
+        <div class="problem-desc">Regulatory approval (JFDA, then CE Mark). Commercial release across MENA.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section class="section alt" id="team">
+  <div class="section-inner">
+    <div class="section-head" style="margin-bottom:64px;">
+      <div class="eyebrow accent reveal">The team</div>
+      <h2 class="h-section reveal r-1">Built by students.<br>Grounded in clinical practice.</h2>
+    </div>
+    <div class="problem-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="problem-card reveal">
+        <div class="problem-title" style="font-size:18px;margin-bottom:8px;">Lana Haneyah</div>
+        <div class="problem-desc">Co-founder</div>
+      </div>
+      <div class="problem-card reveal r-1">
+        <div class="problem-title" style="font-size:18px;margin-bottom:8px;">Haroon Kurkar</div>
+        <div class="problem-desc">Co-founder</div>
+      </div>
+      <div class="problem-card reveal r-2">
+        <div class="problem-title" style="font-size:18px;margin-bottom:8px;">Aya Abbadi</div>
+        <div class="problem-desc">Co-founder</div>
+      </div>
+      <div class="problem-card reveal r-3">
+        <div class="problem-title" style="font-size:18px;margin-bottom:8px;">Qais Ghazal</div>
+        <div class="problem-desc">Co-founder</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:18px;overflow:hidden;">
+      <div class="problem-card reveal">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-4);margin-bottom:14px;">Faculty supervisor</div>
+        <div class="problem-title" style="font-size:18px;margin-bottom:6px;">Eng. Iman Hindi</div>
+        <div class="problem-desc">Al Hussein Technical University, Jordan</div>
+      </div>
+      <div class="problem-card reveal r-1">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Clinical advisor</div>
+        <div class="problem-title" style="font-size:18px;margin-bottom:6px;">Dr. ████████</div>
+        <div class="problem-desc"><em>Specialty and affiliation — to be confirmed</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── DARK CTA (Levels' "Stop guessing. Start seeing.") ── -->
 <section class="dark-cta" id="app">
   <div class="dark-cta-inner">
     <div class="eyebrow reveal">Start with NeuroZ</div>
     <h2 class="reveal r-1">Stop watching. Start steadying.</h2>
-    <p class="reveal r-2">Cancel tremor in milliseconds, capture thirty days of evidence, and bring objective data into every neurology appointment.</p>
+    <p class="reveal r-2">Cancel tremor in milliseconds, capture continuous evidence between visits, and bring objective data into every neurology appointment.</p>
     <a href="https://neuroz-poise.web.app/" target="_blank" rel="noopener" class="btn-primary reveal r-3" style="background:var(--paper);color:var(--ink);">Open the app
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
     </a>
